@@ -12,10 +12,25 @@ const onClickAdd = () => {
   div.className = "list-row";
 
   const p = document.createElement("p");
+  p.className = "list-title";
   p.innerText = inputText;
+
+  const completeButton = document.createElement("button");
+  completeButton.innerText = "完了";
+  completeButton.addEventListener("click", () => {
+    alert("完了");
+  });
+
+  const deleteButton = document.createElement("button");
+  deleteButton.innerText = "削除";
+  deleteButton.addEventListener("click", () => {
+    alert("削除");
+  });
 
   li.appendChild(div);
   div.appendChild(p);
+  div.appendChild(completeButton);
+  div.appendChild(deleteButton);
 
   //　リストに追加
   document.getElementById("incomplete-list").appendChild(li);
