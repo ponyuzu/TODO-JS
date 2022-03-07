@@ -15,10 +15,22 @@ const onClickAdd = () => {
   p.className = "list-title";
   p.innerText = inputText;
 
+  const backButton = document.createElement("button");
+  backButton.innerText = "戻す";
+  backButton.addEventListener("click", () => {
+    div.appendChild(completeButton);
+    div.appendChild(deleteButton);
+    div.removeChild(backButton);
+    document.getElementById("incomplete-list").appendChild(li);
+  });
+
   const completeButton = document.createElement("button");
   completeButton.innerText = "完了";
   completeButton.addEventListener("click", () => {
-    alert("完了");
+    div.removeChild(completeButton);
+    div.removeChild(deleteButton);
+    div.appendChild(backButton);
+    document.getElementById("complete-list").appendChild(li);
   });
 
   const deleteButton = document.createElement("button");
